@@ -157,10 +157,16 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-cyan-500/20 mt-12 pt-8 text-center">
+        <div className="border-t border-cyan-500/20 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <p className="text-gray-500 text-sm">
             © {currentYear} Inntrilabs. All rights reserved.
           </p>
+          <Link
+            href="/privacy-policy"
+            className="text-gray-500 hover:text-cyan-400 transition-colors duration-200 text-sm"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>
