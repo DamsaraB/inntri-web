@@ -131,7 +131,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
           >
-            Ready to transform your business? Let's discuss how we can help.
+            Ready to transform your business? Let&apos;s discuss how we can help.
           </motion.p>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                   Book a Meeting
                 </h2>
                 <p className="text-gray-400 mb-8">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we&apos;ll get back to you within 24 hours.
                 </p>
 
                 {isSubmitted ? (
@@ -166,7 +166,7 @@ export default function ContactPage() {
                       Message Sent Successfully!
                     </h3>
                     <p className="text-gray-300">
-                      Thank you for reaching out. We'll get back to you soon!
+                      Thank you for reaching out. We&apos;ll get back to you soon!
                     </p>
                   </motion.div>
                 ) : (
@@ -280,7 +280,7 @@ export default function ContactPage() {
                     </button>
 
                     <p className="text-xs text-gray-500 text-center">
-                      Calendar integration placeholder - We'll contact you to schedule
+                      Calendar integration placeholder - We&apos;ll contact you to schedule
                     </p>
                   </form>
                 )}
@@ -300,7 +300,7 @@ export default function ContactPage() {
                   Get in Touch
                 </h2>
                 <p className="text-gray-400">
-                  Reach out through any of these channels. We're here to help!
+                  Reach out through any of these channels. We&apos;re here to help!
                 </p>
               </div>
 

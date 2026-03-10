@@ -92,7 +92,7 @@ export default function About() {
               Our innovation-driven approach ensures that every solution we deliver is built with the latest technologies, best practices, and future scalability in mind.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              We don't just build software—we architect intelligent systems that learn, adapt, and evolve with your business needs, ensuring long-term success and competitive advantage.
+              We don&apos;t just build software—we architect intelligent systems that learn, adapt, and evolve with your business needs, ensuring long-term success and competitive advantage.
             </p>
           </motion.div>
         </div>

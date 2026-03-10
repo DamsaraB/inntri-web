@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRightIcon, PlayIcon } from "@heroicons/react/24/outline";
 
 export default function HeroMotion() {
   return (

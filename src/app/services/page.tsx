@@ -147,7 +147,7 @@ export default function ServicesPage() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our services can help you achieve your business goals and drive innovation.
+              Let&apos;s discuss how our services can help you achieve your business goals and drive innovation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact" className="btn-primary magnetic-btn inline-flex items-center">
