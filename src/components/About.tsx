@@ -1,0 +1,164 @@
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
+import {
+  LightBulbIcon,
+  RocketLaunchIcon,
+  ChartBarIcon,
+  ClockIcon,
+  UserGroupIcon,
+  BuildingOfficeIcon,
+} from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+
+export default function About() {
+  const stats = [
+    { label: 'Years of Excellence', value: '5+', icon: ClockIcon },
+    { label: 'Enterprise Clients', value: '50+', icon: BuildingOfficeIcon },
+    { label: 'Products Delivered', value: '6+', icon: ChartBarIcon },
+    { label: 'Team Members', value: '20+', icon: UserGroupIcon },
+  ];
+
+  const values = [
+    {
+      icon: LightBulbIcon,
+      title: 'Innovation-Driven',
+      description:
+        'We constantly explore cutting-edge technologies and methodologies to deliver next-generation solutions that keep your business ahead of the curve.',
+      color: 'from-cyan-500/20 to-blue-500/20',
+    },
+    {
+      icon: RocketLaunchIcon,
+      title: 'Mission & Vision',
+      description:
+        'To empower businesses with intelligent software solutions that drive efficiency, growth, and sustainable competitive advantage in the digital era.',
+      color: 'from-blue-500/20 to-cyan-500/20',
+    },
+  ];
+
+  return (
+    <section className="section-padding relative overflow-hidden">
+      <div className="absolute inset-0 grid-bg opacity-10"></div>
+      <div className="container-custom relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+            About <span className="text-gradient-neon">Inntrilabs</span>
+          </h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Empowering businesses with intelligent, enterprise-grade software solutions
+          </p>
+        </motion.div>
+
+        {/* Who We Are - 3D Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="glass-card glass-card-hover p-8 card-3d"
+          >
+            <h3 className="text-2xl font-heading font-bold text-white mb-4 flex items-center">
+              <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-cyan-600 rounded-full mr-4"></span>
+              Who We Are
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              Founded with a vision to revolutionize how businesses manage their operations, Inntrilabs has been at the forefront of developing intelligent software solutions that drive real business value.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              We combine deep industry expertise with cutting-edge technology to deliver enterprise-grade management systems that transform how companies operate, scale, and compete.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="glass-card glass-card-hover p-8 card-3d"
+          >
+            <h3 className="text-2xl font-heading font-bold text-white mb-4 flex items-center">
+              <span className="w-1 h-8 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-4"></span>
+              Innovation Approach
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              Our innovation-driven approach ensures that every solution we deliver is built with the latest technologies, best practices, and future scalability in mind.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              We don&apos;t just build software—we architect intelligent systems that learn, adapt, and evolve with your business needs, ensuring long-term success and competitive advantage.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Stats Timeline */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="glass-card glass-card-hover p-6 text-center card-3d"
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-cyan-500/30">
+                <stat.icon className="w-8 h-8 text-cyan-400" />
+              </div>
+              <div className="text-4xl font-bold text-gradient-neon mb-2">{stat.value}</div>
+              <div className="text-sm text-gray-400">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mission & Vision - 3D Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {values.map((value, index) => (
+            <motion.div
+              key={value.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className={`glass-card glass-card-hover p-8 card-3d relative overflow-hidden bg-gradient-to-br ${value.color}`}
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/30">
+                  <value.icon className="w-8 h-8 text-cyan-400" />
+                </div>
+                <h3 className="text-xl font-heading font-bold text-white mb-4">
+                  {value.title}
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Link href="/about" className="btn-secondary magnetic-btn inline-flex items-center">
+            Learn More About Us
+            <ArrowRightIcon className="w-5 h-5 ml-2" />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+

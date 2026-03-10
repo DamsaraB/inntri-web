@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* When JS fails to load (e.g. wrong cPanel upload = 404 on /_next/*), show content anyway */
+html.no-js [style*="opacity: 0"],
+html.no-js [style*="opacity:0"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-body text-gray-100 bg-navy-900 antialiased;
+    background: linear-gradient(135deg, #000000 0%, #000033 50%, #000000 100%);
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold;
+  }
+
+  * {
+    @apply border-navy-700;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply backdrop-blur-xl bg-navy-800/30 border border-cyan-500/20 rounded-2xl;
+    background: linear-gradient(135deg, rgba(0, 24, 85, 0.4) 0%, rgba(0, 20, 68, 0.2) 100%);
+    box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.1), inset 0 0 0 1px rgba(0, 212, 255, 0.1);
+  }
+
+  .glass-card-hover {
+    @apply transition-all duration-300 hover:border-cyan-500/30;
+    transform-style: preserve-3d;
+  }
+
+  /* 3D Card Effect */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply relative px-8 py-4 font-semibold text-white rounded-lg overflow-hidden;
+    background: linear-gradient(135deg, #001855 0%, #002966 100%);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 188, 212, 0.2) 100%);
+  }
+
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-primary:hover {
+    @apply shadow-glow-lg border-cyan-500/50 transform scale-105;
+  }
+
+  .btn-secondary {
+    @apply relative px-8 py-4 font-semibold text-cyan-400 rounded-lg overflow-hidden;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-cyan-500/20 border-cyan-500/50 shadow-glow transform scale-105;
+  }
+
+  .btn-accent {
+    @apply relative px-8 py-4 font-semibold text-white rounded-lg overflow-hidden;
+    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-accent:hover {
+    @apply shadow-glow-lg transform scale-105;
+    box-shadow: 0 6px 25px rgba(0, 188, 212, 0.5);
+  }
+
+  /* Magnetic Button Effect */
+  .magnetic-btn {
+    transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Section Padding */
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Neon Text */
+  .neon-text {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+                 0 0 20px rgba(0, 212, 255, 0.3),
+                 0 0 30px rgba(0, 212, 255, 0.2);
+  }
+
+  /* Grid Background */
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid 20s linear infinite;
+  }
+
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Glow Effect */
+  .glow-effect {
+    position: relative;
+  }
+
+  .glow-effect::after {
+    content: '';
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+    filter: blur(20px);
+    z-index: -1;
+  }
+
+  .glow-effect:hover::after {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #00d4ff 0%, #00bcd4 50%, #0097a7 100%);
+  }
+
+  .text-gradient-neon {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #00ffff 0%, #00d4ff 100%);
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #001855 0%, #002966 50%, #001344 100%);
+  }
+  
+  .bg-gradient-accent {
+    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+  }
+
+  .bg-gradient-neon {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 188, 212, 0.05) 100%);
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyan-500/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyan-500/50;
+  }
+}
