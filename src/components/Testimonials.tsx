@@ -71,7 +71,7 @@ const Testimonials: React.FC = () => {
             What Our <span className="text-gradient-neon">Clients Say</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what business leaders have to say about working with Inntrilabs
+            Don't just take our word for it. Here's what business leaders have to say about working with Inntrilabs
           </p>
         </motion.div>
 
@@ -107,7 +107,7 @@ const Testimonials: React.FC = () => {
                       {/* Quote Icon */}
                       <div className="mb-6">
                         <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center border border-cyan-500/30">
-                          <span className="text-2xl">&quot;</span>
+                          <span className="text-2xl">"</span>
                         </div>
                       </div>
 
@@ -120,7 +120,7 @@ const Testimonials: React.FC = () => {
 
                       {/* Content */}
                       <p className="text-gray-300 mb-6 leading-relaxed flex-grow italic text-lg">
-                        &quot;{testimonial.content}&quot;
+                        "{testimonial.content}"
                       </p>
 
                       {/* Author */}

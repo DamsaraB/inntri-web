@@ -4,13 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* When JS fails to load (e.g. wrong cPanel upload = 404 on /_next/*), show content anyway */
-html.no-js [style*="opacity: 0"],
-html.no-js [style*="opacity:0"] {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;

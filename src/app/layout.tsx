@@ -29,14 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="no-js" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
-        {/* When any script runs, remove no-js so animations work; if /_next/* 404s, content stays visible via CSS */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');`,
-          }}
-        />
         <ThemeProvider>
           {children}
         </ThemeProvider>

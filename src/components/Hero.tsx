@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, PlayIcon } from "@heroicons/react/24/outline";
 
 export default function Hero() {
   const [isClient, setIsClient] = useState(false);

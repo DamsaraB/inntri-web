@@ -45,6 +45,3 @@ then
 for run
 
 ```npm run build```
-for production static build (output in `dist/`).
-
-**Nginx deployment:** See [DEPLOY.md](./DEPLOY.md) for static build and Nginx server configuration.

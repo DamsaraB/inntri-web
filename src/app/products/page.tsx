@@ -16,6 +16,7 @@ import {
   Cog6ToothIcon,
   Squares2X2Icon,
 } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
