@@ -25,7 +25,9 @@ public_html/
   services.html
   products.html
   portfolio.html
+  privacy-policy.html
   404.html
+  .htaccess           ← enables /privacy-policy (no .html) to work
   logo/               ← from public/logo
     logo.png
   _next/              ← JS and CSS (required)
@@ -80,7 +82,11 @@ Then you must build with a base path and re-upload:
 2. Run `npm run build` again.
 3. Upload the **contents** of `dist` into the subfolder (e.g. `public_html/inntri/`).
 
-## 5. Check after deploy
+## 5. Clean URLs (privacy-policy, about, etc.)
+
+The build includes `.htaccess` which rewrites extensionless URLs to `.html` files. For example, `yoursite.com/privacy-policy` will serve `privacy-policy.html`. Make sure `.htaccess` is uploaded with the rest of the `dist` contents—it is copied from `public/` during build. Without it, direct links like `/privacy-policy` may 404 on cPanel.
+
+## 6. Check after deploy
 
 - Open `https://yourdomain.com/`.
 - Open DevTools (F12) → **Network**.
