@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
  
-  // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
-  // trailingSlash: true,
+  // Generate /page/index.html structure so direct URL loads work with static hosting
+  trailingSlash: true,
  
   // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
   // skipTrailingSlashRedirect: true,
