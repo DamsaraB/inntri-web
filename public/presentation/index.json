@@ -1,0 +1,11 @@
+{
+  "$comment": "Assign demo images per system: list filenames that live in public/presentation/<id>/ (same order as the slider).",
+  "systems": {
+    "tiep": ["preview.svg", "preview-2.svg"],
+    "shipping": ["preview.svg"],
+    "fleet": ["preview.svg"],
+    "warehouse": ["preview.svg"],
+    "factory": ["preview.svg"],
+    "integrated": ["preview.svg"]
+  }
+}
