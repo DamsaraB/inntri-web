@@ -17,7 +17,6 @@ import {
   Squares2X2Icon,
 } from '@heroicons/react/24/outline';
 import ProductDemoSlider from '@/components/ProductDemoSlider';
-import PresentationAssignmentsTable from '@/components/PresentationAssignmentsTable';
 
 export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
@@ -220,10 +219,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
-
-      <PresentationAssignmentsTable
-        products={products.map((p) => ({ id: p.id, name: p.name }))}
-      />
 
       {/* Presentation Section */}
       <section className="section-padding relative">
