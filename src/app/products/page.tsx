@@ -16,6 +16,9 @@ import {
   Cog6ToothIcon,
   Squares2X2Icon,
 } from '@heroicons/react/24/outline';
+import ProductDemoSlider from '@/components/ProductDemoSlider';
+import PresentationAssignmentsTable from '@/components/PresentationAssignmentsTable';
+
 export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
   const [showPresentation, setShowPresentation] = useState(false);
@@ -218,6 +221,10 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      <PresentationAssignmentsTable
+        products={products.map((p) => ({ id: p.id, name: p.name }))}
+      />
+
       {/* Presentation Section */}
       <section className="section-padding relative">
         <div className="container-custom">
@@ -325,12 +332,7 @@ export default function ProductsPage() {
               </div>
 
               <div className="space-y-6">
-                <div className="aspect-video bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center border border-cyan-500/30">
-                  <div className="text-center">
-                    <PlayIcon className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
-                    <p className="text-gray-300">Dashboard Preview</p>
-                  </div>
-                </div>
+                <ProductDemoSlider productId={selectedProduct} />
 
                 <div>
                   <h3 className="text-xl font-heading font-semibold text-white mb-4">Workflow Overview</h3>
