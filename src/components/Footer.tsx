@@ -97,6 +97,14 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
+                  href="/register"
+                  className="text-gray-400 hover:text-cyan-400 transition-colors duration-200 text-sm"
+                >
+                  Company Registration
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="text-gray-400 hover:text-cyan-400 transition-colors duration-200 text-sm"
                 >

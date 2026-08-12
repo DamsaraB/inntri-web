@@ -182,13 +182,21 @@ export default function ProductDemoSlider({ productId }: Props) {
             className="absolute inset-0"
           >
             {/* eslint-disable-next-line @next/next/no-img-element -- public demos: SVG/PNG/JPG from registry */}
-            <img
-              src={slides[index]}
-              alt={`Product screenshot ${index + 1} of ${slides.length}`}
-              className="absolute inset-0 h-full w-full object-contain bg-navy-950"
-              loading={index === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-            />
+            <a
+              href={slides[index]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 block h-full w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+              aria-label={`Open screenshot ${index + 1} of ${slides.length} in a new tab`}
+            >
+              <img
+                src={slides[index]}
+                alt={`Product screenshot ${index + 1} of ${slides.length}`}
+                className="pointer-events-none absolute inset-0 h-full w-full object-contain bg-navy-950"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </a>
           </motion.div>
         </AnimatePresence>
 
@@ -228,7 +236,6 @@ export default function ProductDemoSlider({ productId }: Props) {
           </>
         )}
       </div>
-
     </div>
   );
 }

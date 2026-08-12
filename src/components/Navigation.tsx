@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -28,6 +26,7 @@ const Navigation: React.FC = () => {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'MUTU ', href: '/products' },
+    { name: 'Register', href: '/register' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '/contact' },
   ];

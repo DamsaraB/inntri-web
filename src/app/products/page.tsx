@@ -1,14 +1,12 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   CheckCircleIcon,
   ArrowRightIcon,
-  PlayIcon,
-  XMarkIcon,
-  PresentationChartBarIcon,
   TruckIcon,
   CubeIcon,
   BuildingOffice2Icon,
@@ -16,12 +14,8 @@ import {
   Cog6ToothIcon,
   Squares2X2Icon,
 } from '@heroicons/react/24/outline';
-import ProductDemoSlider from '@/components/ProductDemoSlider';
 
 export default function ProductsPage() {
-  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
-  const [showPresentation, setShowPresentation] = useState(false);
-
   const products = [
     {
       id: 'tiep',
@@ -115,14 +109,6 @@ export default function ProductsPage() {
     },
   ];
 
-  const handleViewDemo = (productId: string) => {
-    setSelectedProduct(productId);
-  };
-
-  const handleRequestPresentation = () => {
-    setShowPresentation(true);
-  };
-
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -196,23 +182,14 @@ export default function ProductsPage() {
                     ))}
                   </div>
 
-                  {/* CTA Buttons */}
-                  <div className="flex flex-col gap-3">
-                    <button
-                      onClick={() => handleViewDemo(product.id)}
-                      className="btn-primary magnetic-btn group/btn w-full inline-flex items-center justify-center"
-                    >
-                      <PlayIcon className="w-5 h-5 mr-2" />
-                      View Demo
-                    </button>
-                    <button
-                      onClick={handleRequestPresentation}
-                      className="btn-secondary magnetic-btn w-full inline-flex items-center justify-center"
-                    >
-                      <PresentationChartBarIcon className="w-5 h-5 mr-2" />
-                      Request Presentation
-                    </button>
-                  </div>
+                  {/* CTA */}
+                  <Link
+                    href="/register"
+                    className="btn-primary magnetic-btn group/btn w-full inline-flex items-center justify-center"
+                  >
+                    Register Company
+                    <ArrowRightIcon className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -296,115 +273,6 @@ export default function ProductsPage() {
           </motion.div>
         </div>
       </section>
-
-      {/* Demo Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-            onClick={() => setSelectedProduct(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="glass-card glass-card-hover p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-heading font-bold text-white">
-                  {products.find(p => p.id === selectedProduct)?.name} Demo
-                </h2>
-                <button
-                  onClick={() => setSelectedProduct(null)}
-                  className="p-2 rounded-lg glass-card border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-colors"
-                >
-                  <XMarkIcon className="w-6 h-6" />
-                </button>
-              </div>
-
-              <div className="space-y-6">
-                <ProductDemoSlider productId={selectedProduct} />
-
-                <div>
-                  <h3 className="text-xl font-heading font-semibold text-white mb-4">Workflow Overview</h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {products.find(p => p.id === selectedProduct)?.description}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-heading font-semibold text-white mb-4">Key Features</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {products.find(p => p.id === selectedProduct)?.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-gray-300">
-                        <CheckCircleIcon className="w-5 h-5 text-cyan-400 mr-2 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex gap-4 pt-4">
-                  <a href="/contact" className="btn-primary magnetic-btn flex-1 inline-flex items-center justify-center">
-                    Request Full Demo
-                    <ArrowRightIcon className="w-5 h-5 ml-2" />
-                  </a>
-                  <button
-                    onClick={() => setSelectedProduct(null)}
-                    className="btn-secondary magnetic-btn flex-1 inline-flex items-center justify-center"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Presentation Modal */}
-      <AnimatePresence>
-        {showPresentation && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-            onClick={() => setShowPresentation(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="glass-card glass-card-hover p-8 max-w-2xl w-full"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-3xl font-heading font-bold text-white">Request Presentation</h2>
-                <button
-                  onClick={() => setShowPresentation(false)}
-                  className="p-2 rounded-lg glass-card border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-colors"
-                >
-                  <XMarkIcon className="w-6 h-6" />
-                </button>
-              </div>
-
-              <p className="text-gray-300 mb-6">
-                Fill out the form below and our team will contact you to schedule a personalized presentation of our solutions.
-              </p>
-
-              <a href="/contact" className="btn-primary magnetic-btn w-full inline-flex items-center justify-center">
-                Go to Contact Form
-                <ArrowRightIcon className="w-5 h-5 ml-2" />
-              </a>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <Footer />
     </main>
