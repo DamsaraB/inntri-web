@@ -26,20 +26,20 @@ export default function About() {
       title: 'Innovation-Driven',
       description:
         'We constantly explore cutting-edge technologies and methodologies to deliver next-generation solutions that keep your business ahead of the curve.',
-      color: 'from-cyan-500/20 to-blue-500/20',
+      color: 'from-cyan-50 to-sky-50',
     },
     {
       icon: RocketLaunchIcon,
       title: 'Mission & Vision',
       description:
         'To empower businesses with intelligent software solutions that drive efficiency, growth, and sustainable competitive advantage in the digital era.',
-      color: 'from-blue-500/20 to-cyan-500/20',
+      color: 'from-sky-50 to-cyan-50',
     },
   ];
 
   return (
-    <section className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-10"></div>
+    <section className="section-padding relative overflow-hidden section-muted">
+      <div className="absolute inset-0 grid-bg opacity-30"></div>
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,10 +48,10 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
             About <span className="text-gradient-neon">Inntrilabs</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             Empowering businesses with intelligent, enterprise-grade software solutions
           </p>
         </motion.div>
@@ -65,14 +65,14 @@ export default function About() {
             viewport={{ once: true }}
             className="glass-card glass-card-hover p-8 card-3d"
           >
-            <h3 className="text-2xl font-heading font-bold text-white mb-4 flex items-center">
-              <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-cyan-600 rounded-full mr-4"></span>
+            <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center">
+              <span className="w-1 h-8 bg-gradient-to-b from-cyan-500 to-cyan-600 rounded-full mr-4"></span>
               Who We Are
             </h3>
-            <p className="text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-500 leading-relaxed mb-4">
               Founded with a vision to revolutionize how businesses manage their operations, Inntrilabs has been at the forefront of developing intelligent software solutions that drive real business value.
             </p>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-500 leading-relaxed">
               We combine deep industry expertise with cutting-edge technology to deliver enterprise-grade management systems that transform how companies operate, scale, and compete.
             </p>
           </motion.div>
@@ -84,14 +84,14 @@ export default function About() {
             viewport={{ once: true }}
             className="glass-card glass-card-hover p-8 card-3d"
           >
-            <h3 className="text-2xl font-heading font-bold text-white mb-4 flex items-center">
-              <span className="w-1 h-8 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-4"></span>
+            <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4 flex items-center">
+              <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-cyan-600 rounded-full mr-4"></span>
               Innovation Approach
             </h3>
-            <p className="text-gray-300 leading-relaxed mb-4">
+            <p className="text-gray-500 leading-relaxed mb-4">
               Our innovation-driven approach ensures that every solution we deliver is built with the latest technologies, best practices, and future scalability in mind.
             </p>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-500 leading-relaxed">
               We don&apos;t just build software—we architect intelligent systems that learn, adapt, and evolve with your business needs, ensuring long-term success and competitive advantage.
             </p>
           </motion.div>
@@ -108,11 +108,11 @@ export default function About() {
               viewport={{ once: true }}
               className="glass-card glass-card-hover p-6 text-center card-3d"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 border border-cyan-500/30">
-                <stat.icon className="w-8 h-8 text-cyan-400" />
+              <div className="w-16 h-16 bg-cyan-50 rounded-xl flex items-center justify-center mx-auto mb-4 border border-cyan-100">
+                <stat.icon className="w-8 h-8 text-cyan-600" />
               </div>
               <div className="text-4xl font-bold text-gradient-neon mb-2">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
+              <div className="text-sm text-gray-500">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -128,15 +128,15 @@ export default function About() {
               viewport={{ once: true }}
               className={`glass-card glass-card-hover p-8 card-3d relative overflow-hidden bg-gradient-to-br ${value.color}`}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-200/30 rounded-full blur-3xl"></div>
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/30">
-                  <value.icon className="w-8 h-8 text-cyan-400" />
+                <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-6 border border-cyan-100 shadow-soft">
+                  <value.icon className="w-8 h-8 text-cyan-600" />
                 </div>
-                <h3 className="text-xl font-heading font-bold text-white mb-4">
+                <h3 className="text-xl font-heading font-bold text-gray-900 mb-4">
                   {value.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-500 leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -161,4 +161,3 @@ export default function About() {
     </section>
   );
 }
-

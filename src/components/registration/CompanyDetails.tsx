@@ -28,10 +28,10 @@ export default function CompanyDetails({
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-heading font-bold text-white mb-1">
+        <h2 className="text-2xl font-heading font-bold text-gray-900 mb-1">
           Company Information
         </h2>
-        <p className="text-gray-400 text-sm">
+        <p className="text-gray-500 text-sm">
           Enter your company details to get started with MUTU.
         </p>
       </div>

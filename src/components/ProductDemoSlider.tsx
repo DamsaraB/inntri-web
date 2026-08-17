@@ -148,21 +148,21 @@ export default function ProductDemoSlider({ productId }: Props) {
 
   if (!ready) {
     return (
-      <div className="aspect-video bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center border border-cyan-500/30">
-        <p className="text-gray-400 text-sm">Loading preview…</p>
+      <div className="aspect-video bg-surface-muted rounded-xl flex items-center justify-center border border-gray-200">
+        <p className="text-gray-500 text-sm">Loading preview…</p>
       </div>
     );
   }
 
   if (!slides.length) {
     return (
-      <div className="aspect-video bg-gradient-to-br from-navy-800 to-navy-900 rounded-xl flex items-center justify-center border border-cyan-500/30">
+      <div className="aspect-video bg-surface-muted rounded-xl flex items-center justify-center border border-gray-200">
         <div className="text-center px-4">
-          <PlayIcon className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
-          <p className="text-gray-300">Dashboard preview</p>
+          <PlayIcon className="w-16 h-16 text-cyan-500 mx-auto mb-4" />
+          <p className="text-gray-700">Dashboard preview</p>
           <p className="text-gray-500 text-xs mt-3 max-w-md mx-auto">
-            Add this system to <code className="text-cyan-500/80">public/presentation/index.json</code>{' '}
-            and place images in <code className="text-cyan-500/80">public/presentation/{productId}/</code>.
+            Add this system to <code className="text-cyan-600">public/presentation/index.json</code>{' '}
+            and place images in <code className="text-cyan-600">public/presentation/{productId}/</code>.
           </p>
         </div>
       </div>
@@ -171,7 +171,7 @@ export default function ProductDemoSlider({ productId }: Props) {
 
   return (
     <div className="space-y-3">
-      <div className="relative aspect-video rounded-xl overflow-hidden border border-cyan-500/30 bg-navy-900">
+      <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-200 bg-white shadow-soft">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={`${productId}-${index}`}
@@ -186,13 +186,13 @@ export default function ProductDemoSlider({ productId }: Props) {
               href={slides[index]}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute inset-0 block h-full w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+              className="absolute inset-0 block h-full w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               aria-label={`Open screenshot ${index + 1} of ${slides.length} in a new tab`}
             >
               <img
                 src={slides[index]}
                 alt={`Product screenshot ${index + 1} of ${slides.length}`}
-                className="pointer-events-none absolute inset-0 h-full w-full object-contain bg-navy-950"
+                className="pointer-events-none absolute inset-0 h-full w-full object-contain bg-surface-muted"
                 loading={index === 0 ? 'eager' : 'lazy'}
                 decoding="async"
               />
@@ -205,7 +205,7 @@ export default function ProductDemoSlider({ productId }: Props) {
             <button
               type="button"
               onClick={() => go(-1)}
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-lg glass-card border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/10 transition-colors z-10"
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-lg glass-card border-gray-200 text-cyan-600 hover:bg-cyan-50 transition-colors z-10"
               aria-label="Previous slide"
             >
               <ChevronLeftIcon className="w-6 h-6" />
@@ -213,7 +213,7 @@ export default function ProductDemoSlider({ productId }: Props) {
             <button
               type="button"
               onClick={() => go(1)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-lg glass-card border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/10 transition-colors z-10"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-lg glass-card border-gray-200 text-cyan-600 hover:bg-cyan-50 transition-colors z-10"
               aria-label="Next slide"
             >
               <ChevronRightIcon className="w-6 h-6" />
@@ -226,8 +226,8 @@ export default function ProductDemoSlider({ productId }: Props) {
                   onClick={() => setIndex(i)}
                   className={`h-2 rounded-full transition-all ${
                     i === index
-                      ? 'w-8 bg-cyan-400'
-                      : 'w-2 bg-cyan-400/40 hover:bg-cyan-400/60'
+                      ? 'w-8 bg-cyan-500'
+                      : 'w-2 bg-cyan-300 hover:bg-cyan-400'
                   }`}
                   aria-label={`Go to slide ${i + 1}`}
                 />

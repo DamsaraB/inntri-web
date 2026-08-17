@@ -68,10 +68,10 @@ export default function ModuleCard({
     <div
       className={`relative h-full rounded-2xl border transition-all duration-200 ${
         isPrimary
-          ? 'border-cyan-400/70 bg-cyan-500/10 shadow-glow'
+          ? 'border-cyan-400 bg-cyan-50 shadow-soft'
           : isAdditional
-            ? 'border-cyan-500/45 bg-cyan-500/5'
-            : 'border-cyan-500/20 bg-navy-900/30 hover:border-cyan-500/40 hover:bg-navy-800/40'
+            ? 'border-cyan-200 bg-cyan-50/50'
+            : 'border-gray-200 bg-white hover:border-cyan-200 hover:bg-surface-muted'
       }`}
     >
       <button
@@ -79,7 +79,7 @@ export default function ModuleCard({
         disabled={disabled}
         onClick={() => onToggle(module.id)}
         aria-pressed={isSelected}
-        className={`flex h-full w-full flex-col p-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-inset rounded-2xl disabled:opacity-60 disabled:cursor-not-allowed md:p-5 ${
+        className={`flex h-full w-full flex-col p-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-inset rounded-2xl disabled:opacity-60 disabled:cursor-not-allowed md:p-5 ${
           isAdditional ? 'pb-12' : ''
         }`}
       >
@@ -87,18 +87,18 @@ export default function ModuleCard({
           <div
             className={`flex h-10 w-10 items-center justify-center rounded-xl border md:h-11 md:w-11 ${
               isSelected
-                ? 'border-cyan-400/50 bg-gradient-to-br from-cyan-500/25 to-blue-500/20'
-                : 'border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/10'
+                ? 'border-cyan-200 bg-white'
+                : 'border-gray-200 bg-surface-muted'
             }`}
           >
-            <Icon className="h-5 w-5 text-cyan-400 md:h-6 md:w-6" />
+            <Icon className="h-5 w-5 text-cyan-600 md:h-6 md:w-6" />
           </div>
 
           <span
             className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border ${
               isSelected
-                ? 'border-cyan-400 bg-cyan-400 text-navy-900'
-                : 'border-gray-500 bg-transparent'
+                ? 'border-cyan-500 bg-cyan-500 text-white'
+                : 'border-gray-300 bg-white'
             }`}
             aria-hidden
           >
@@ -108,24 +108,24 @@ export default function ModuleCard({
           </span>
         </div>
 
-        <h3 className="font-heading text-sm font-semibold text-white md:text-base">
+        <h3 className="font-heading text-sm font-semibold text-gray-900 md:text-base">
           {title}
         </h3>
-        <p className="mt-1 flex-1 text-xs leading-relaxed text-gray-400 md:text-sm">
+        <p className="mt-1 flex-1 text-xs leading-relaxed text-gray-500 md:text-sm">
           {description}
         </p>
 
         {isPrimary ? (
-          <span className="mt-3 inline-flex w-fit items-center gap-1 rounded-full border border-cyan-400/40 bg-cyan-500/15 px-2 py-0.5 text-[11px] font-medium text-cyan-300">
+          <span className="mt-3 inline-flex w-fit items-center gap-1 rounded-full border border-cyan-200 bg-white px-2 py-0.5 text-[11px] font-medium text-cyan-700">
             <StarSolidIcon className="h-3 w-3" />
             Primary
           </span>
         ) : isAdditional ? (
-          <span className="mt-3 inline-flex w-fit items-center rounded-full border border-cyan-500/30 bg-navy-900/50 px-2 py-0.5 text-[11px] font-medium text-cyan-400/90">
+          <span className="mt-3 inline-flex w-fit items-center rounded-full border border-cyan-100 bg-white px-2 py-0.5 text-[11px] font-medium text-cyan-600">
             Also requested
           </span>
         ) : (
-          <span className="mt-3 text-[11px] text-gray-500">Tap to select</span>
+          <span className="mt-3 text-[11px] text-gray-400">Tap to select</span>
         )}
       </button>
 
@@ -137,7 +137,7 @@ export default function ModuleCard({
             e.stopPropagation();
             onSetPrimary(module.id);
           }}
-          className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-lg border border-cyan-500/30 bg-navy-950/80 px-2 py-1 text-[11px] font-medium text-cyan-300 backdrop-blur-sm transition-colors hover:bg-cyan-500/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 disabled:opacity-50"
+          className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white px-2 py-1 text-[11px] font-medium text-cyan-600 shadow-soft transition-colors hover:bg-cyan-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 disabled:opacity-50"
           aria-label={`Set ${title} as primary`}
         >
           <StarIcon className="h-3.5 w-3.5" />

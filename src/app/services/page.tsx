@@ -1,163 +1,135 @@
 'use client';
+
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import {
-  DevicePhoneMobileIcon,
-  ComputerDesktopIcon,
-  CodeBracketIcon,
-  CloudIcon,
-  CogIcon,
-  ArrowRightIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { services } from '@/data/services';
 
 export default function ServicesPage() {
-  const services = [
-    {
-      id: 'custom',
-      name: 'Custom Software Development',
-      description:
-        'Tailored software solutions designed to address your unique business challenges and integrate seamlessly with your existing systems.',
-      icon: CodeBracketIcon,
-      gradient: 'from-cyan-500/20 to-blue-500/20',
-      iconColor: 'text-cyan-400',
-    },
-    {
-      id: 'web',
-      name: 'Web Application Development',
-      description:
-        'Modern, responsive web applications built with cutting-edge technologies that deliver exceptional user experiences and business value.',
-      icon: ComputerDesktopIcon,
-      gradient: 'from-blue-500/20 to-cyan-500/20',
-      iconColor: 'text-blue-400',
-    },
-    {
-      id: 'mobile',
-      name: 'Mobile App Development',
-      description:
-        'Native and cross-platform mobile applications for iOS and Android that engage users and drive business growth.',
-      icon: DevicePhoneMobileIcon,
-      gradient: 'from-cyan-400/20 to-blue-400/20',
-      iconColor: 'text-cyan-300',
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise Systems',
-      description:
-        'Comprehensive enterprise solutions including ERP, CRM, and business intelligence systems that scale with your organization.',
-      icon: CogIcon,
-      gradient: 'from-blue-400/20 to-cyan-400/20',
-      iconColor: 'text-blue-300',
-    },
-    {
-      id: 'cloud',
-      name: 'Cloud & Automation Solutions',
-      description:
-        'Cloud infrastructure, DevOps automation, and scalable architectures that ensure reliability, security, and performance.',
-      icon: CloudIcon,
-      gradient: 'from-cyan-500/20 to-blue-600/20',
-      iconColor: 'text-cyan-400',
-    },
-  ];
-
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-20"></div>
+      <section className="pt-32 pb-16 relative overflow-hidden bg-white">
+        <div className="absolute inset-0 grid-bg opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-50/60 via-white to-white pointer-events-none" />
         <div className="container-custom text-center relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-heading font-bold text-white mb-6"
+            className="text-cyan-600 text-sm font-semibold tracking-[0.18em] uppercase mb-4"
+          >
+            What we deliver
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-heading font-bold text-gray-900 mb-5 tracking-tight"
           >
             Our <span className="text-gradient-neon">Services</span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto"
           >
-            Comprehensive IT solutions tailored to your business needs
+            Comprehensive IT solutions — each backed by clear outcomes, capabilities, and visuals of
+            the work we build.
           </motion.p>
         </div>
       </section>
 
-      {/* Services Grid - 3D Glass Cards */}
-      <section className="section-padding relative">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
+      <section className="section-padding relative section-muted !pt-8">
+        <div className="container-custom space-y-10 md:space-y-14">
+          {services.map((service, index) => {
+            const reverse = index % 2 === 1;
+            return (
+              <motion.article
                 key={service.id}
-                initial={{ opacity: 0, y: 30 }}
+                id={service.id}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="glass-card glass-card-hover p-8 card-3d group relative overflow-hidden"
+                transition={{ duration: 0.55 }}
+                viewport={{ once: true, margin: '-60px' }}
+                className="glass-card overflow-hidden shadow-soft scroll-mt-28"
               >
-                {/* Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-300`}></div>
-                
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center mb-6 border border-cyan-500/30 group-hover:border-cyan-500/35 transition-all duration-300">
-                    <service.icon className={`w-8 h-8 ${service.iconColor}`} />
+                <div
+                  className={`grid grid-cols-1 lg:grid-cols-2 ${
+                    reverse ? 'lg:[&>*:first-child]:order-2' : ''
+                  }`}
+                >
+                  <div className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-[360px] bg-cyan-50">
+                    <Image
+                      src={service.image}
+                      alt={service.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      unoptimized
+                    />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-2xl font-heading font-bold text-white mb-4 transition-colors">
-                    {service.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-300 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-
-                  {/* Learn More Link */}
-                  <div className="flex items-center text-cyan-400 font-medium cursor-pointer">
-                    <span>Learn More</span>
-                    <ArrowRightIcon className="w-5 h-5 ml-2 transition-transform duration-300" />
+                  <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+                    <p className="text-cyan-600 text-xs font-semibold tracking-[0.16em] uppercase mb-3">
+                      Service 0{index + 1}
+                    </p>
+                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4 tracking-tight">
+                      {service.name}
+                    </h2>
+                    <p className="text-gray-500 leading-relaxed mb-6">
+                      {service.shortDescription}
+                    </p>
+                    <ul className="space-y-2 mb-8">
+                      {service.outcomes.slice(0, 3).map((item) => (
+                        <li key={item} className="flex gap-2 text-sm text-gray-600">
+                          <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-500 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={`/services/${service.id}/`}
+                      className="inline-flex items-center text-cyan-600 font-semibold hover:text-cyan-700 transition-colors group"
+                    >
+                      Explore this service
+                      <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </motion.article>
+            );
+          })}
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding relative">
+      <section className="section-padding relative bg-white">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="glass-card glass-card-hover p-12 text-center max-w-4xl mx-auto card-3d"
+            className="glass-card p-10 md:p-12 text-center max-w-4xl mx-auto section-accent"
           >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
-              Ready to Transform Your Business?
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+              Ready to transform your business?
             </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss how our services can help you achieve your business goals and drive innovation.
+            <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
+              Tell us what you need to build — we&apos;ll map the right service path and delivery plan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" className="btn-primary magnetic-btn inline-flex items-center">
+              <Link href="/contact" className="btn-accent magnetic-btn inline-flex items-center justify-center">
                 Book a Consultation
                 <ArrowRightIcon className="w-5 h-5 ml-2" />
-              </a>
-              <a href="/products" className="btn-secondary magnetic-btn inline-flex items-center">
-                View Our Solutions
-                <ArrowRightIcon className="w-5 h-5 ml-2" />
-              </a>
+              </Link>
+              <Link href="/products" className="btn-secondary magnetic-btn inline-flex items-center justify-center">
+                View MUTU Solutions
+              </Link>
             </div>
           </motion.div>
         </div>

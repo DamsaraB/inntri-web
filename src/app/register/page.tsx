@@ -245,12 +245,13 @@ export default function CompanyRegistrationPage() {
     .map((m) => getModuleDisplayName(m.name));
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Navigation />
 
-      <section className="pt-28 sm:pt-32 pb-16 relative overflow-hidden min-h-[calc(100vh-5rem)]">
-        <div className="absolute inset-0 grid-bg opacity-20" />
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <section className="pt-28 sm:pt-32 pb-16 relative overflow-hidden min-h-[calc(100vh-5rem)] bg-white">
+        <div className="absolute inset-0 grid-bg opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-50/50 via-white to-surface-muted pointer-events-none" />
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[480px] h-[480px] bg-cyan-200/30 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="container-custom relative z-10">
           <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-10">
@@ -258,7 +259,7 @@ export default function CompanyRegistrationPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-cyan-400 font-semibold tracking-[0.2em] text-sm mb-3"
+              className="text-cyan-600 font-semibold tracking-[0.2em] text-sm mb-3"
             >
               MUTU
             </motion.p>
@@ -266,7 +267,7 @@ export default function CompanyRegistrationPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-3"
+              className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-3"
             >
               Create Your Company Account
             </motion.h1>
@@ -274,7 +275,7 @@ export default function CompanyRegistrationPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-gray-400 text-base sm:text-lg"
+              className="text-gray-500 text-base sm:text-lg"
             >
               Start using MUTU solutions for your business
             </motion.p>
@@ -326,10 +327,10 @@ export default function CompanyRegistrationPage() {
 
                     {submitError ? (
                       <div
-                        className="mb-6 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-left"
+                        className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-left"
                         role="alert"
                       >
-                        <p className="text-sm font-medium text-red-300">{submitError}</p>
+                        <p className="text-sm font-medium text-red-600">{submitError}</p>
                       </div>
                     ) : null}
 
@@ -380,20 +381,20 @@ export default function CompanyRegistrationPage() {
             </div>
 
             {view === 'form' ? (
-              <p className="mt-8 text-center text-sm text-gray-400">
+              <p className="mt-8 text-center text-sm text-gray-500">
                 Already registered?{' '}
                 <a
                   href={MUTU_SIGN_IN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+                  className="text-cyan-600 hover:text-cyan-700 font-medium transition-colors"
                 >
                   Sign In
                 </a>
                 {' · '}
                 <Link
                   href="/contact"
-                  className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+                  className="text-cyan-600 hover:text-cyan-700 font-medium transition-colors"
                 >
                   Need help?
                 </Link>

@@ -53,15 +53,15 @@ export default function ModuleSelection({
     <div className="space-y-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-xl font-heading font-bold text-white md:text-2xl mb-1">
+          <h2 className="text-xl font-heading font-bold text-gray-900 md:text-2xl mb-1">
             Select MUTU Services
           </h2>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-500 text-sm">
             Tap to select. First choice is primary — change it anytime.
           </p>
         </div>
         {requestedCount > 0 ? (
-          <p className="text-xs text-cyan-300/90 sm:text-right">
+          <p className="text-xs text-cyan-600 sm:text-right">
             {requestedCount} selected
             {additionalModuleIds.length > 0
               ? ` · ${additionalModuleIds.length} additional`
@@ -73,14 +73,14 @@ export default function ModuleSelection({
       {modulesLoading ? (
         <div className="flex flex-col items-center justify-center py-12 gap-3">
           <span
-            className="h-8 w-8 animate-spin rounded-full border-2 border-cyan-400/30 border-t-cyan-400"
+            className="h-8 w-8 animate-spin rounded-full border-2 border-cyan-200 border-t-cyan-600"
             aria-hidden
           />
-          <p className="text-sm text-gray-400">Loading available services...</p>
+          <p className="text-sm text-gray-500">Loading available services...</p>
         </div>
       ) : modulesError ? (
-        <div className="rounded-lg border border-red-400/30 bg-red-500/10 px-4 py-5 text-center">
-          <p className="text-sm text-red-300 mb-3">{modulesError}</p>
+        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-5 text-center">
+          <p className="text-sm text-red-600 mb-3">{modulesError}</p>
           <button
             type="button"
             onClick={onRetryModules}
@@ -90,8 +90,8 @@ export default function ModuleSelection({
           </button>
         </div>
       ) : modules.length === 0 ? (
-        <div className="rounded-lg border border-cyan-500/20 bg-navy-900/40 px-4 py-8 text-center">
-          <p className="text-sm text-gray-400">
+        <div className="rounded-lg border border-gray-200 bg-surface-muted px-4 py-8 text-center">
+          <p className="text-sm text-gray-500">
             No MUTU services are available at the moment. Please try again later.
           </p>
         </div>
@@ -119,7 +119,7 @@ export default function ModuleSelection({
       )}
 
       {selectionError ? (
-        <p className="text-sm text-red-400" role="alert">
+        <p className="text-sm text-red-600" role="alert">
           {selectionError}
         </p>
       ) : null}

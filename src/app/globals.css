@@ -2,188 +2,199 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f9fc;
+  --bg-accent-soft: #eef5fc;
+  --text-primary: #111827;
+  --text-secondary: #667085;
+  --border: #e5e7eb;
+  --accent: #1281e0;
+  --accent-hover: #0f6fc4;
+  --accent-soft: rgba(18, 129, 224, 0.08);
+  --navy: #0f172a;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --radius: 16px;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply font-body text-gray-100 bg-navy-900 antialiased;
-    background: linear-gradient(135deg, #000000 0%, #000033 50%, #000000 100%);
+    @apply font-body antialiased;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     min-height: 100vh;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-semibold;
+    color: var(--text-primary);
   }
 
   * {
-    @apply border-navy-700;
+    border-color: var(--border);
   }
 }
 
 @layer components {
-  /* Glassmorphism Card */
+  /* Surface card — light theme */
   .glass-card {
-    @apply backdrop-blur-xl bg-navy-800/30 border border-cyan-500/20 rounded-2xl;
-    background: linear-gradient(135deg, rgba(0, 24, 85, 0.4) 0%, rgba(0, 20, 68, 0.2) 100%);
-    box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.1), inset 0 0 0 1px rgba(0, 212, 255, 0.1);
+    @apply rounded-2xl border bg-white;
+    border-color: var(--border);
+    box-shadow: var(--shadow-sm);
   }
 
   .glass-card-hover {
-    @apply transition-all duration-300 hover:border-cyan-500/30;
-    transform-style: preserve-3d;
+    @apply transition-all duration-300;
   }
 
-  /* 3D Card Effect */
+  .glass-card-hover:hover {
+    box-shadow: var(--shadow-md);
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+  }
+
   .card-3d {
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .card-3d:hover {
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
 
   /* Buttons */
   .btn-primary {
-    @apply relative px-8 py-4 font-semibold text-white rounded-lg overflow-hidden;
-    background: linear-gradient(135deg, #001855 0%, #002966 100%);
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
-    transition: all 0.3s ease;
-  }
-
-  .btn-primary::before {
-    content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 188, 212, 0.2) 100%);
-  }
-
-  .btn-primary:hover::before {
-    @apply opacity-100;
+    @apply relative inline-flex items-center justify-center px-7 py-3.5 font-semibold text-white rounded-xl overflow-hidden;
+    background: var(--navy);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
   }
 
   .btn-primary:hover {
-    @apply shadow-glow-lg border-cyan-500/50 transform scale-105;
+    background: #1e293b;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
-    @apply relative px-8 py-4 font-semibold text-cyan-400 rounded-lg overflow-hidden;
-    background: rgba(0, 212, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    transition: all 0.3s ease;
+    @apply relative inline-flex items-center justify-center px-7 py-3.5 font-semibold rounded-xl overflow-hidden bg-white;
+    color: var(--accent);
+    border: 1px solid #c5ddf5;
+    transition: all 0.2s ease;
   }
 
   .btn-secondary:hover {
-    @apply bg-cyan-500/20 border-cyan-500/50 shadow-glow transform scale-105;
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    transform: translateY(-1px);
   }
 
   .btn-accent {
-    @apply relative px-8 py-4 font-semibold text-white rounded-lg overflow-hidden;
-    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
-    transition: all 0.3s ease;
+    @apply relative inline-flex items-center justify-center px-7 py-3.5 font-semibold text-white rounded-xl overflow-hidden;
+    background: var(--accent);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(18, 129, 224, 0.28);
   }
 
   .btn-accent:hover {
-    @apply shadow-glow-lg transform scale-105;
-    box-shadow: 0 6px 25px rgba(0, 188, 212, 0.5);
+    background: var(--accent-hover);
+    box-shadow: 0 6px 18px rgba(18, 129, 224, 0.34);
+    transform: translateY(-1px);
   }
 
-  /* Magnetic Button Effect */
   .magnetic-btn {
     transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  /* Section Padding */
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-20 md:py-24 px-4 sm:px-6 lg:px-8;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
 
-  /* Neon Text */
+  .section-muted {
+    background-color: var(--bg-secondary);
+  }
+
+  .section-accent {
+    background-color: var(--bg-accent-soft);
+  }
+
   .neon-text {
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
-                 0 0 20px rgba(0, 212, 255, 0.3),
-                 0 0 30px rgba(0, 212, 255, 0.2);
+    color: var(--accent);
   }
 
-  /* Grid Background */
   .grid-bg {
-    background-image: 
-      linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: grid 20s linear infinite;
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
-  /* Floating Animation */
   .float-animation {
     animation: float 6s ease-in-out infinite;
   }
 
-  /* Glow Effect */
   .glow-effect {
     position: relative;
-  }
-
-  .glow-effect::after {
-    content: '';
-    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
-    filter: blur(20px);
-    z-index: -1;
-  }
-
-  .glow-effect:hover::after {
-    @apply opacity-100;
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #00d4ff 0%, #00bcd4 50%, #0097a7 100%);
+    background-image: linear-gradient(135deg, #0c5fa8 0%, #1281e0 50%, #3b9aeb 100%);
   }
 
   .text-gradient-neon {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #00ffff 0%, #00d4ff 100%);
-    text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    background-image: linear-gradient(135deg, #0f6fc4 0%, #1281e0 100%);
   }
-  
+
   .bg-gradient-primary {
-    background: linear-gradient(135deg, #001855 0%, #002966 50%, #001344 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   }
-  
+
   .bg-gradient-accent {
-    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+    background: linear-gradient(135deg, #1281e0 0%, #0f6fc4 100%);
   }
 
   .bg-gradient-neon {
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 188, 212, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(18, 129, 224, 0.08) 0%, rgba(18, 129, 224, 0.02) 100%);
   }
 
-  /* Scrollbar Styling */
+  .text-ink {
+    color: var(--text-primary);
+  }
+
+  .text-muted {
+    color: var(--text-secondary);
+  }
+
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-navy-900;
+    background: #f3f4f6;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-cyan-500/30 rounded-full;
+    background: #cbd5e1;
+    border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-cyan-500/50;
+    background: #94a3b8;
   }
 }

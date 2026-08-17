@@ -23,7 +23,7 @@ const ProductsSnapshot: React.FC = () => {
         'Comprehensive transportation and logistics management solution for efficient operations.',
       features: ['Route optimization', 'Real-time tracking', 'Fleet management'],
       icon: TruckIcon,
-      gradient: 'from-cyan-500/20 to-blue-500/20',
+      gradient: 'from-cyan-50 to-sky-50',
     },
     {
       id: 'shipping',
@@ -32,7 +32,7 @@ const ProductsSnapshot: React.FC = () => {
         'End-to-end shipping and courier management system for streamlined delivery operations.',
       features: ['Package tracking', 'Delivery scheduling', 'Customer notifications'],
       icon: CubeIcon,
-      gradient: 'from-blue-500/20 to-cyan-500/20',
+      gradient: 'from-sky-50 to-cyan-50',
     },
     {
       id: 'fleet',
@@ -41,7 +41,7 @@ const ProductsSnapshot: React.FC = () => {
         'Advanced fleet management solution for vehicle tracking, maintenance, and efficiency.',
       features: ['GPS tracking', 'Maintenance scheduling', 'Fuel management'],
       icon: BuildingOffice2Icon,
-      gradient: 'from-cyan-400/20 to-blue-400/20',
+      gradient: 'from-cyan-50 to-blue-50',
     },
     {
       id: 'warehouse',
@@ -50,7 +50,7 @@ const ProductsSnapshot: React.FC = () => {
         'Complete warehouse operations management with inventory control and order fulfillment.',
       features: ['Inventory management', 'Order processing', 'Barcode scanning'],
       icon: BuildingStorefrontIcon,
-      gradient: 'from-blue-400/20 to-cyan-400/20',
+      gradient: 'from-sky-50 to-cyan-50',
     },
     {
       id: 'factory',
@@ -59,7 +59,7 @@ const ProductsSnapshot: React.FC = () => {
         'Manufacturing operations management for production planning and quality control.',
       features: ['Production planning', 'Quality control', 'Resource management'],
       icon: Cog6ToothIcon,
-      gradient: 'from-cyan-500/20 to-blue-600/20',
+      gradient: 'from-cyan-50 to-sky-50',
     },
     {
       id: 'integrated',
@@ -68,13 +68,13 @@ const ProductsSnapshot: React.FC = () => {
         'All-in-one business management platform integrating all operations seamlessly.',
       features: ['Multi-module integration', 'Unified dashboard', 'Data synchronization'],
       icon: Squares2X2Icon,
-      gradient: 'from-blue-500/20 to-cyan-600/20',
+      gradient: 'from-sky-50 to-cyan-50',
     },
   ];
 
   return (
-    <section className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-10"></div>
+    <section className="section-padding relative overflow-hidden section-muted">
+      <div className="absolute inset-0 grid-bg opacity-30"></div>
       <div className="container-custom relative z-10">
         {/* Section Header */}
         <motion.div
@@ -84,10 +84,10 @@ const ProductsSnapshot: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
             Our Ready-Made <span className="text-gradient-neon">Enterprise Solutions</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             Premium enterprise management systems designed for efficiency, growth, and control
           </p>
         </motion.div>
@@ -104,7 +104,7 @@ const ProductsSnapshot: React.FC = () => {
               className="glass-card glass-card-hover p-8 card-3d group relative overflow-hidden"
             >
               {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-300`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
               
               {/* Content */}
               <div className="relative z-10">
@@ -112,25 +112,25 @@ const ProductsSnapshot: React.FC = () => {
                 <div className="mb-6 text-center transition-transform duration-300 flex justify-center">
                   {(() => {
                     const IconComponent = product.icon;
-                    return <IconComponent className="w-16 h-16 text-white" />;
+                    return <IconComponent className="w-16 h-16 text-cyan-600" />;
                   })()}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-heading font-bold text-white mb-4 transition-colors text-center">
+                <h3 className="text-xl font-heading font-bold text-gray-900 mb-4 transition-colors text-center">
                   {product.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-300 leading-relaxed mb-6 text-center text-sm">
+                <p className="text-gray-500 leading-relaxed mb-6 text-center text-sm">
                   {product.description}
                 </p>
 
                 {/* Features */}
                 <div className="space-y-2 mb-6">
                   {product.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center text-sm text-gray-400">
-                      <CheckCircleIcon className="w-4 h-4 text-cyan-400 mr-2 flex-shrink-0" />
+                    <div key={idx} className="flex items-center text-sm text-gray-500">
+                      <CheckCircleIcon className="w-4 h-4 text-cyan-500 mr-2 flex-shrink-0" />
                       <span>{feature}</span>
                     </div>
                   ))}
@@ -139,7 +139,7 @@ const ProductsSnapshot: React.FC = () => {
                 {/* CTA */}
                 <Link
                   href={`/products#${product.id}`}
-                  className="flex items-center justify-center text-cyan-400 font-medium"
+                  className="flex items-center justify-center text-cyan-600 font-medium"
                 >
                   <span>View Details</span>
                   <ArrowRightIcon className="w-5 h-5 ml-2 transition-transform duration-300" />

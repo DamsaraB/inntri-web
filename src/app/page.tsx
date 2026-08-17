@@ -1,10 +1,13 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import ProductsSnapshot from '@/components/ProductsSnapshot';
+import LogoMarquee from '@/components/story/LogoMarquee';
+import N2NFlowSection from '@/components/story/N2NFlowSection';
+import LifecycleShowcase from '@/components/story/LifecycleShowcase';
+import AccordionFAQ from '@/components/story/AccordionFAQ';
 import Testimonials from '@/components/Testimonials';
+import ClientWall from '@/components/story/ClientWall';
+import FinalCTA from '@/components/story/FinalCTA';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -12,10 +15,13 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <Hero />
-      <About />
-      <Services />
-      <ProductsSnapshot />
+      <LogoMarquee />
+      <N2NFlowSection />
+      <LifecycleShowcase />
+      <AccordionFAQ />
       <Testimonials />
+      <ClientWall />
+      <FinalCTA />
       <Footer />
     </main>
   );

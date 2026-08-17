@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/dev.js",
+    "dev:clean": "node scripts/dev.js",
+    "build": "next build && node scripts/prepare-dist.js",
     "start": "next start",
     "lint": "eslint"
   },

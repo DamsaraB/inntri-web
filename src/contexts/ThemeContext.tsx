@@ -19,34 +19,16 @@ export const useTheme = () => {
   return context;
 };
 
-// export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-//   const [theme, setTheme] = useState<Theme>('light');
-
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme] = useState<Theme>('light');
 
   useEffect(() => {
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
   }, []);
 
-  useEffect(() => {
-    // Update document class and save preference
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  // const toggleTheme = () => {
-  //   setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  // };
-
-   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'dark' : 'dark');
+  const toggleTheme = () => {
+    // Light theme only for the redesign
   };
 
   return (
@@ -55,4 +37,3 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     </ThemeContext.Provider>
   );
 };
-

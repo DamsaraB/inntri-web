@@ -25,8 +25,8 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
                 <span
                   className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold border transition-colors ${
                     isActive || isComplete
-                      ? 'border-cyan-400 bg-cyan-500/20 text-cyan-300'
-                      : 'border-gray-600 bg-navy-900/40 text-gray-500'
+                      ? 'border-cyan-500 bg-cyan-50 text-cyan-700'
+                      : 'border-gray-200 bg-surface-muted text-gray-400'
                   }`}
                   aria-current={isActive ? 'step' : undefined}
                 >
@@ -34,7 +34,7 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
                 </span>
                 <span
                   className={`truncate text-xs sm:text-sm font-medium ${
-                    isActive || isComplete ? 'text-white' : 'text-gray-500'
+                    isActive || isComplete ? 'text-gray-900' : 'text-gray-400'
                   }`}
                 >
                   {step.label}
@@ -44,7 +44,7 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
               {index < steps.length - 1 ? (
                 <div
                   className={`h-px flex-1 ${
-                    isComplete ? 'bg-cyan-400/60' : 'bg-cyan-500/20'
+                    isComplete ? 'bg-cyan-400' : 'bg-gray-200'
                   }`}
                   aria-hidden
                 />
